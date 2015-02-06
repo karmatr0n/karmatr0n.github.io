@@ -1,8 +1,8 @@
 # Site settings
-title: Karmatr0n Home Page
-email: karmatr0n@devnull.com
+title: Karmatr0n
+email: karmatr0n@dev.null
 description: > # this means to ignore newlines until "baseurl:"
-  Infosec, C, Objective C, C++, Ruby, iOS, OSX and Linux.
+  This is my personal blog. It is a place where I share ideas on topics I care about. Infosec, C, Objective C, C++, Ruby, iOS, OSX and Linux.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://karmatr0n.github.io" # the base hostname & protocol for your site
 twitter_username: karmatr0n
@@ -10,3 +10,5 @@ github_username: karmatr0n
 
 # Build settings
 markdown: kramdown
+permalink: pretty
+
