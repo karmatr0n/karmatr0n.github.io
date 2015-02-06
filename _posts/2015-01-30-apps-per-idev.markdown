@@ -11,7 +11,8 @@ I think It could be useful for forensic or just for curiousity to identify how m
 
 You have to connect all your devices and run the program to get a list including each UUID and name per device, with a list of installed applications that includes its category, version, name and path to the disk (nand).
 
-The script does not depend on the jailbreak, and you should authorize the computer when each device asks if should the device trust on that.
+The script does not depend on the jailbreak, and you should authorize to your computer when each device asks if it should trust on that.
+
 
 Its design is very simple, the program gets an array of strings with the UUID of each device connected to your computer through the _device_list_ method defined in the _iDevice_ class. So, behind the scenes the idevice
 gem is using _Ruby-FFI_ to implement the bindings for the functions included in the libimobiledevice and libplist libraries.
