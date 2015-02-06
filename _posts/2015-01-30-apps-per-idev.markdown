@@ -7,19 +7,18 @@ categories: ios ruby forensics
 
 I wrote a program using the _idevice rubygem_ to print a list of all applications installed on each device based on iOS, using the bindings for the _libimobiledevice and libplist libraries_, and running on _Mac OSX or Linux (Santoku or Remnux)_.
 
-I think It could be useful for forensic or just for curiousity to identify how many apps do you have installed on all your devices.
+I think It could be useful for forensics or maybe just to identify how many apps you have installed on all your devices.
 
 You have to connect all your devices and run the program to get a list including each UUID and name per device, with a list of installed applications that includes its category, version, name and path to the disk (nand).
 
-The script does not depend on the jailbreak, and you should authorize to your computer when each device asks if it should trust on that.
-
+The script does not depend on the jailbreak, and you should authorize your computer when each device asks if it should trust in that.
 
 Its design is very simple, the program gets an array of strings with the UUID of each device connected to your computer through the _device_list_ method defined in the _iDevice_ class. So, behind the scenes the idevice
 gem is using _Ruby-FFI_ to implement the bindings for the functions included in the libimobiledevice and libplist libraries.
 
 Both libraries are implemented in C, the _libimobildevice_ library is designed to support the communication protocols by the USB ports connected to devices based on iOS (iPhone/iPod/iPad/AppleTV) using _libusbmuxd (linux) or usbmuxd (macosx)_. The _libplist_ library is designed to manipulate the Apple Property List format (binary or XML).
 
-To get the name of each device the program uses the _device_name_ method in the _iDevice :: LockdownClient_ object. Then It will get the application list throught the  _browse_  method in the _iDevice::InstProxyClient_ object, and it prints the attributes defined in the _props_ array.
+To get the name of each device the program uses the _device_name_ method in the _iDevice :: LockdownClient_ object. Then It will get the application list through the _browse_  method in the _iDevice::InstProxyClient_ object, and it prints the attributes defined in the _props_ array.
 
 **Source code**
 {% highlight ruby %}
