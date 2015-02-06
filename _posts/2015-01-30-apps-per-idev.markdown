@@ -5,7 +5,7 @@ date:   2015-01-30 22:30:00
 categories: ios ruby forensics
 ---
 
-I wrote a program using the ruby gem idevice to print a list of all applications installed on each device based on iOS, using the bindings for the libimobiledevice and libplist libraries, and running on Mac OSX or Linux (Santoku or Remnux).
+I wrote a program using the _idevice rubygem_ to print a list of all applications installed on each device based on iOS, using the bindings for the _libimobiledevice and libplist libraries_, and running on _Mac OSX or Linux (Santoku or Remnux)_.
 
 I think It could be useful for forensic or just for curiousity to identify how many apps do you have installed on all your devices.
 
