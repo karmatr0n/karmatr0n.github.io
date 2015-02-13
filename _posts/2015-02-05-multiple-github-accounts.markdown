@@ -15,6 +15,6 @@ I'm very happy with the functionality to continue the git flow as usual. Then if
 
   1. [Register your github accounts](https://github.com/join)
   2. [Generate and associate each ssh key per github account](https://confluence.atlassian.com/pages/viewpage.action?pageId=271943168)
-  3. [Install and configure the git passport hook](https://confluence.atlassian.com/pages/viewpage.action?pageId=271943168)
-  4. [Execute git passport per repository before to make any git operation](https://confluence.atlassian.com/pages/viewpage.action?pageId=271943168)
+  3. [Install and configure the git passport hook](https://github.com/frace/git-passport/)
+  4. [Execute git passport per repository before to make any git operation](https://github.com/frace/git-passport/)
   5. [Continue the git flow as usual](http://nvie.com/posts/a-successful-git-branching-model/)
