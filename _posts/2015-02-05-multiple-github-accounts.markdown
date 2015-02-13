@@ -9,7 +9,7 @@ As a Software Consultant I need an easy way to deal with multiple github account
 
 So, I followed the instructions described in the next links and I found a pretty useful way to do this.
 
-I'm very happy with the functionality to continue the git flow as usual. I recommend you to do the same if you have to deal have the same situation as me.
+I'm very happy with the functionality to continue the git flow as usual. Then if you have to deal with the same situation I recommend you following the next steps.
 
 **Steps**
 
