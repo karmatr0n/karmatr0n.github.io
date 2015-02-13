@@ -5,18 +5,16 @@ date:   2015-02-05 10:45:00
 categories: git ssh development
 ---
 
-## Description
-
 As a Software Consultant I need an easy way to deal with multiple github accounts, their ssh keys and  with several source code repositories.
 
 So, I followed the instructions described in the next links and I found a pretty useful way to do this.
 
 I'm very happy with the functionality to continue the git flow as usual. I recommend you to do the same if you have to deal have the same situation as me.
 
-## Steps
+**Steps**
 
-  # [Register your github accounts]: https://github.com/join
-  # [Generate and associate each ssh key per github account]: https://confluence.atlassian.com/pages/viewpage.action?pageId=271943168
-  # [Install and configure the git passport hook]: https://confluence.atlassian.com/pages/viewpage.action?pageId=271943168
-  # [Execute git passport per repository before to make any git operation]: https://confluence.atlassian.com/pages/viewpage.action?pageId=271943168
-  # [Continue the git flow as usual]: http://nvie.com/posts/a-successful-git-branching-model/
+  1. [Register your github accounts]: https://github.com/join
+  2. [Generate and associate each ssh key per github account]: https://confluence.atlassian.com/pages/viewpage.action?pageId=271943168
+  3. [Install and configure the git passport hook]: https://confluence.atlassian.com/pages/viewpage.action?pageId=271943168
+  4. [Execute git passport per repository before to make any git operation]: https://confluence.atlassian.com/pages/viewpage.action?pageId=271943168
+  5. [Continue the git flow as usual]: http://nvie.com/posts/a-successful-git-branching-model/
