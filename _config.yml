@@ -10,5 +10,6 @@ github_username: karmatr0n
 
 # Build settings
 markdown: kramdown
-permalink: pretty
-
+permalink: /:year/:month/:day/:title/
+paginate: 10
+highlighter: true
