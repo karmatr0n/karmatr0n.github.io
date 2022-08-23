@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Writing a Linux security sensor with eBPF"
+title:  "Writing a Linux security sensor with eBPF and Ruby"
 date:   2022-08-20 00:30:00
 tags: c ruby ebpf security linux
 ---
@@ -79,10 +79,11 @@ multiple programming languages.
 
 The dns_packet_matcher function uses the [__sk_buff](https://github.com/iovisor/bcc/blob/5bf9b4d145eeda9dc304c71212859ca9f3ebb3b9/src/cc/compat/linux/virtual_bpf.h#L5746) structure
 provided by BCC, which is user accessible mirror of the in-kernel [sk_buff](https://www.kernel.org/doc/htmldocs/networking/API-struct-sk-buff.html) structure
-to get access to the socket buffer fields of each network connection.
+and is used get access to the socket buffer members of each network packet.
 
 This function also uses the [cursor_advance](https://github.com/iovisor/bcc/blob/master/src/cc/export/helpers.h#L524) macro 
-to successively parse the different headers of each packet and only match the UDP packets with the 53 destination port.
+to successively parse the different headers in each packet and then only match the UDP packets
+with the 53 destination port.
 
 This function will be instrumented in the kernel via the BCC toolkit and will be called by the frontend 
 program that attaches this to a specific network interface.
