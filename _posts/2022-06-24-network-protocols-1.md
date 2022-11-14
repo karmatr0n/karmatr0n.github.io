@@ -81,7 +81,7 @@ In the following example we will capture and display the network communications 
 
 ## Sniffer
 To capture and display the network traffic we will require a simple sniffer 
-{% highlight ruby linenos %}
+{% highlight ruby %}
 require 'packetfu'
 include PacketFu
 
@@ -107,7 +107,7 @@ NOTE: You can comment or remove the line 13 if you want observe all the packets 
 
 ## FTP client
 To generate the traffic we will use a very simple ftp client.
-{% highlight ruby linenos %}
+{% highlight ruby %}
 require 'net/ftp'
 
 host = 'ftp.netbsd.org'
@@ -129,7 +129,7 @@ ftp.close()
 {% include youtube_embed.html id="JlXi5Y4IDZ8" %}
 
 # Executed commands
-{% highlight bash linenos %}
+{% highlight bash %}
 bundle install
 rvmsudo bundle exec ruby sniffer.rb 
 bundle exec ruby ftp_client.rb
@@ -142,7 +142,7 @@ In the output of the sniffer there can be observed the 4 layer of encapsulation 
 This packet contains the Link (EthHeader), Internet (IPHeader), and Transport (TCPHeader) layers because it is part of the [TCP protocol handshake](https://developer.mozilla.org/en-US/docs/Glossary/TCP_handshake),
 for example the A and S flags can be seen in the TCPHeader and this does not include anything related the application layer, which means the application payload is empty.
 
-{% highlight bash linenos %}
+{% highlight bash %}
 ================================================================================
 199.233.217.201 -> 192.168.11.46   74   TCP
 --EthHeader-------------------------------------------------------------------
@@ -178,7 +178,7 @@ for example the A and S flags can be seen in the TCPHeader and this does not inc
 
 ## FTP server response (Packet with application payload)
 This packet that includes the Link (EthHeader), Internet (IPHeader), Transport (TCPHeader) and Application layers because it presents the server's initial response via the FTP protocol.In this case, the payload is in clear text, and the ftp client can understand it.
-{% highlight bash linenos %}
+{% highlight bash %}
 ================================================================================
 199.233.217.201 -> 192.168.11.46   127  TCP
 --EthHeader-------------------------------------------------
