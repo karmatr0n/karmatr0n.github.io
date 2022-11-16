@@ -154,7 +154,13 @@ In the following video you can watch how to run the packet sender and the sniffe
 ### Steps to run the demo
 1. Download the source code to run the packet sender and the sniffer from [this file](/src/network_protocols/ethernet_packets.zip)  .
 2. Uncompress the file.
-3. Execute the docker compose command.
+3. Execute the following docker commands:
+
+{% highlight bash %}
+docker compose -f docker-compose.yml up -d
+docker ps
+docker logs -f <container_id>
+{% endhighlight  %}
 
 NOTE: You will require [docker installed in your machine](https://docs.docker.com/get-docker/).
 
