@@ -45,3 +45,5 @@ gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 group :development do
   gem 'webrick'
 end
+
+gem "ruby-lsp", "~> 0.3.6", :group => :development
