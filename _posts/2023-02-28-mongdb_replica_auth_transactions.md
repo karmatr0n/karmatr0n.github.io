@@ -71,7 +71,8 @@ $ sudo systemctl start mongod
 $ mongosh 'mongodb://<db_user>:<db_password>@127.0.0.1:27017/<db_name>'
 {% endhighlight %}
 
-# Initializing the replica set
+## Initializing the replica set
+Once connected into the database you can initialize the replica set and check the status.
 {% highlight js linenos %}
 rs.initiate()
 rs.status()
