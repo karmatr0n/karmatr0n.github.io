@@ -7,8 +7,8 @@ tags:  mongodb transactions replica_set authentication
 
 I've been working on a Python application that requires MongoDB with transactions in recent months.
 The transactions feature is only available for replica sets and sharded clusters. So, the goal of 
-this post is to provide a brief walkthrough for configuring a development environment 
-with authentication and transaction enabled  rather than a fully functional cluster configuration.
+this post is to provide a quick guide for configuring a development environment 
+with authentication and transaction enabled, rather than a fully functional cluster configuration.
 
 ## Prerequisites
 
