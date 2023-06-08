@@ -6,7 +6,8 @@ tags:  domain networking dns resolver rust async
 ---
 
 In this post I will show you a Rust application to resolve domains asynchronously using DNS queries with the A and 
-AAAA DNS record types to identify if the domain is resolving or not.
+AAAA DNS record types to identify if the domain is resolving or not. This can be useful to identify if an domain is 
+available, and to enumerate domains or subdomains via brute forcing.
 
 This also can be performed with tools like [massdns](https://github.com/blechschmidt/massdns)
 or bash scripts using the dig or host commands, but I wanted to learn how to do a basic version of those tools
