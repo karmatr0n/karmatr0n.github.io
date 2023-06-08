@@ -27,28 +27,28 @@ is to be a mixin for the URLChecker and SiteMapper classes.
 
 {% highlight ruby linenos %}
 module HttpHelper
-USER_AGENTS = [
-'Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/81.0',
-'Mozilla/5.0 (compatible; MSIE 10.0.0; Windows Phone OS 8.0.0; Trident/6.0.0; IEMobile/10.0.0; Lumia 630',
-'Mozilla/5.0 (iPad; CPU OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A523 Safari/8536.25'
-].freeze
+    USER_AGENTS = [
+    'Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/81.0',
+    'Mozilla/5.0 (compatible; MSIE 10.0.0; Windows Phone OS 8.0.0; Trident/6.0.0; IEMobile/10.0.0; Lumia 630',
+    'Mozilla/5.0 (iPad; CPU OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A523 Safari/8536.25'
+    ].freeze
 
-def http_get_request(path)
-request = Net::HTTP::Get.new(path)
-request['User-Agent'] = user_agent
-request
-end
-
-def user_agent
-USER_AGENTS.sample
-end
-
-def http_request(uri)
-http = Net::HTTP.new(uri.host, uri.port)
-http.use_ssl = uri.scheme == 'https'
-http.verify_mode = OpenSSL::SSL::VERIFY_NONE if http.use_ssl?
-http
-end
+    def http_get_request(path)
+        request = Net::HTTP::Get.new(path)
+        request['User-Agent'] = user_agent
+        request
+    end
+    
+    def user_agent
+        USER_AGENTS.sample
+    end
+    
+    def http_request(uri)
+        http = Net::HTTP.new(uri.host, uri.port)
+        http.use_ssl = uri.scheme == 'https'
+        http.verify_mode = OpenSSL::SSL::VERIFY_NONE if http.use_ssl?
+        http
+    end
 end
 {% endhighlight %}
 
@@ -186,21 +186,21 @@ end
 
 1. Clone the repository:
 
-```bash
-git clone https://github.com/karmatr0n/sitemap_verifier
-```
+    ```bash
+    git clone https://github.com/karmatr0n/sitemap_verifier
+    ```
 
 2. Install the dependencies:
 
-```bash
-bundle install
-```  
+    ```bash
+    bundle install
+    ```  
 
 3. Run the script:
 
-```bash
-ruby sitemap_verifier.rb https://example.com/sitemap_index.xml
-```
+    ```bash
+    ruby sitemap_verifier.rb https://example.com/sitemap_index.xml
+    ```
 
 ## Know issues
 * The application does not support needs to finish the URLs verification process before saving the JSON file.
