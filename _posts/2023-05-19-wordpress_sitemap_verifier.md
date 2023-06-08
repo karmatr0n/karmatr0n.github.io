@@ -52,12 +52,11 @@ module HttpHelper
         end
         http
     end
-    
-    def http_request(uri)
-        http = Net::HTTP.new(uri.host, uri.port)
-        http.use_ssl = uri.scheme == 'https'
-        http.verify_mode = OpenSSL::SSL::VERIFY_NONE if http.use_ssl?
-        http
+
+    def http_get_request(path)
+        request = Net::HTTP::Get.new(path)
+        request['User-Agent'] = USER_AGENTS.sample
+        request
     end
 end
 {% endhighlight %}
