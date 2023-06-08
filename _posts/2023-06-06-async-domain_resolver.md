@@ -135,7 +135,8 @@ impl DomainGenerator {
 This Rust code defines a struct used for asynchronously resolving multiple domain names based on the
 [rsdns](https://crates.io/crates/rsdns) crate.  It uses the list of generated domains, the maximum number of asynchronous 
 dns queries, and the data structure called DomainNames to store domain and its status once it has been validated.  
-The provided methods perform the following actions:
+
+The provided functions will perform the following actions:
 
 * Initializing a new instance of AsyncDomainResolver. 
 * Resolving domains using asynchronous operations in batches of 20.
