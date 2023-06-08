@@ -38,6 +38,7 @@ However, I will do this with Rust performing two DNS queries with the following 
 
 The code is available on [github](https://github.com/karmatr0n/domain_resolver).
 
+## Sequence Diagram
 The application is composed of following parts:
 
 * Domain: Stores the domain and its resolved status.
