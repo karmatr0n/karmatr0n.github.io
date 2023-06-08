@@ -264,11 +264,16 @@ cargo install --path .
 
 ## How to run it
 {% highlight bash linenos %}
-$HOME/.cargo/domain_resolver -n dicts/wordlist -t io -o results.json
+$HOME/.cargo/bin/domain_enumerator -n dicts/wordlist -t io -o results.json
 
 or
 
-$HOME/.cargo/domain_resolver -n dicts/wordlist -t io 
+$HOME/.cargo/bin/domain_enumerator -n dicts/wordlist -t io
+
+
+or
+
+$HOME/.cargo/bin/domain_enumerator --help
 {% endhighlight %}
 
 ## Example output
