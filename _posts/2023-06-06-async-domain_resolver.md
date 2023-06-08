@@ -132,10 +132,11 @@ impl DomainGenerator {
 {% endhighlight %}
 
 ## AsyncDomainResolver
-This Rust code defines a struct used for asynchronously resolving multiple domain names.  It has fields for a 
-list of domains, the maximum number of concurrent lookups, and uses the data structure called 
-DomainNames to store the resolved domains.  The provided methods  allow to perform the following actions:
-* 
+This Rust code defines a struct used for asynchronously resolving multiple domain names based on the
+[rsdns](https://crates.io/crates/rsdns) crate.  It uses the list of generated domains, the maximum number of asynchronous 
+dns queries, and the data structure called DomainNames to store domain and its status once it has been validated.  
+The provided methods perform the following actions:
+
 * Initializing a new instance of AsyncDomainResolver. 
 * Resolving domains using asynchronous operations in batches of 20.
 * Returns the results as a JSON string.
@@ -143,7 +144,7 @@ DomainNames to store the resolved domains.  The provided methods  allow to perfo
 {% highlight rust linenos %}
 struct AsyncDomainResolver {
     domains: Vec<String>,
-    max_async_lookups: u32,
+    max_async_queries: u32,
     resolved_domains: DomainNames,
 }
 
@@ -151,14 +152,14 @@ impl AsyncDomainResolver {
     fn new(domains: Vec<String>) -> Self {
         Self {
             domains: domains,
-            max_async_lookups: 20,
+            max_async_queries: 20,
             resolved_domains: DomainNames::new(),
         }
     }
 
     fn resolve_domains(&mut self) {
         let rt = tokio::runtime::Runtime::new().unwrap();
-        for domains in self.domains.chunks(self.max_async_lookups as usize) {
+        for domains in self.domains.chunks(self.max_async_queries as usize) {
             let now = Local::now();
             println!("--- Verifying {} domains at {:?} ---", domains.len(), now);
             let verified_domains = rt.block_on(self.async_resolve_domains(domains));
