@@ -25,7 +25,7 @@ is available on [this github repository](https://github.com/karmatr0n/sitemap_ve
 
 ## Sequence diagram
 The following sequence diagram describe the implemented classes and their interactions.
-![ethernet encapsulation](/img/sitemap_verifier/sequence_diagram.png)
+![ethernet encapsulation](/img/en/sequence_diagram.png)
 Additionally, the HTTPHelper module is required to reuse the methods to make HTTP requests.
 
 ## HTTPHelper

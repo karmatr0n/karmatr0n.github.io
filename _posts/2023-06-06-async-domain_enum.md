@@ -1,17 +1,17 @@
 ---
 layout: post
-title: "Asynchronous Domain Resolver in Rust"
+title: "Asynchronous Domain Enumerator in Rust"
 date:  2023-06-06 18:47:00
 tags:  domain networking dns resolver rust async 
 ---
 
-In this post I will show you a Rust application to resolve domains asynchronously using DNS queries with the A and 
+In this post I will show you a Rust application to enumerate domains asynchronously using DNS queries with the A and 
 AAAA DNS record types to identify if the domain is resolving or not. This can be useful to identify if an domain is 
-available, and to enumerate domains or subdomains via brute forcing.
+available or enumerate domains or subdomains via brute forcing.
 
-This also can be performed with tools like [massdns](https://github.com/blechschmidt/massdns)
-or bash scripts using the dig or host commands, but I wanted to learn how to do a basic version of those tools
-using Rust.
+This also could be performed with tools like [massdns](https://github.com/blechschmidt/massdns)
+or bash scripts using the dig or host commands, but I wanted to learn how to do a basic version of that kind of tools
+with Rust.
 
 Example to look up for the example.com domain:
 {% highlight bash linenos %}
@@ -37,7 +37,7 @@ However, I will do this with Rust performing two DNS queries with the following 
 * A: IPv4 address
 * AAAA: IPv6 address
 
-The code is available on [github](https://github.com/karmatr0n/domain_resolver).
+The code is available on [github](https://github.com/karmatr0n/domain_enumerator).
 
 ## Sequence Diagram
 The application is composed of following parts:
@@ -45,10 +45,10 @@ The application is composed of following parts:
 * Domain: Stores the domain and its resolved status.
 * DomainNames: Stores the resolved domains and serialize them to JSON.
 * DomainGenerator: Reads names from a file and combine them with the top level domain to build a list of domain names.
-* DomainResolver: Resolves the domain names asynchronously in batches of 20 and save the results into a file.
+* AsyncDomainEnumerator: Enumerates the domain names asynchronously in batches of 20 and serializes the results to JSON.
 
 The following sequence diagram shows the components and how they interact with each other.
-![Sequence Diagram](/img/domain_resolver/sequence_diagram.png)
+![Sequence Diagram](/img/async_domain_enum/sequence_diagram.png)
 
 ## Domain
 The Domain struct defines two fields: name and resolved. Additionally, this also provides a 
@@ -249,7 +249,7 @@ fn main() {
 
 ## How to get the code
 {% highlight bash linenos %}
-git clone https://github.com/karmatr0n/domain_resolver.git
+git clone https://github.com/karmatr0n/domain_enumerator.git
 {% endhighlight %}
 
 ## How to compile the application
