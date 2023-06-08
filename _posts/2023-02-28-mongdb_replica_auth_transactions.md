@@ -78,9 +78,32 @@ rs.initiate()
 rs.status()
 {% endhighlight %}
 
+## Conclusion
+After following the steps above you should have a MongoDB replica set with authentication and transactions
+enabled. Example:
+{% highlight js linenos %}
+session = db.getMongo().startSession( { readPreference: { mode: "primary" } } );
+
+employeesCollection = session.getDatabase("hr").employees;
+eventsCollection = session.getDatabase("reporting").events;
+session.startTransaction( { readConcern: { level: "snapshot" }, writeConcern: { w: "majority" } } );
+
+try {
+  employeesCollection.updateOne( { employee: 3 }, { $set: { status: "Inactive" } } );
+  eventsCollection.insertOne( { employee: 3, status: { new: "Inactive", old: "Active" } } );
+} catch (error) {
+  session.abortTransaction();
+  throw error;
+}
+
+session.commitTransaction();
+session.endSession();
+{% endhighlight %}
+
 ## References
 
 * [MongoDB - Deploy a Replica Set](https://www.mongodb.com/docs/manual/tutorial/deploy-replica-set/)
 * [MongoDB - Enable Access Control](https://www.mongodb.com/docs/manual/tutorial/enable-authentication/)
 * [MongoDB - db.createUser](https://www.mongodb.com/docs/manual/reference/method/db.createUser/)
 * [MongoDB - Database Administration Roles](https://www.mongodb.com/docs/manual/reference/built-in-roles/#database-administration-roles)
+* [MongoDB - Transactions](https://www.mongodb.com/transactions)
