@@ -34,3 +34,5 @@ permalink: /:year/:month/:day/:title/
 paginate: 10
 kramdown:
   input: GFM
+
+theme: jekyll-theme-architect
