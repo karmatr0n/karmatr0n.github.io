@@ -203,5 +203,5 @@ end
     ```
 
 ## Know issues
-* The application does not support needs to finish the URLs verification process before saving the JSON file.
+* The application must wait for all URLs verification process to finish before saving the JSON file.
 
