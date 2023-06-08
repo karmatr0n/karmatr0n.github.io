@@ -43,13 +43,10 @@ module HttpHelper
 
     def http_get_request(path)
         request = Net::HTTP::Get.new(path)
-        request['User-Agent'] = user_agent
+        request['User-Agent'] = USER_AGENTS.sample
         request
     end
-    
-    def user_agent
-        USER_AGENTS.sample
-    end
+
     
     def http_request(uri)
         http = Net::HTTP.new(uri.host, uri.port)
