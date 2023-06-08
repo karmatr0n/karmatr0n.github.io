@@ -5,7 +5,7 @@ date:  2023-06-06 18:47:00
 tags:  domain networking dns resolver rust async 
 ---
 
-Rust application to resolve domains asynchronously using DNS queries with the A and AAAA record types 
+Rust application to resolve domains asynchronously using DNS queries with the A and AAAA DNS record types 
 to identify if the domain is resolving or not.
 
 There same operations can be performed with tools like [massdns](https://github.com/blechschmidt/massdns)
