@@ -24,7 +24,7 @@ So, I implemented this application based on the Ruby HTTP library, and the Nokog
 is available on [this github repository](https://github.com/karmatr0n/sitemap_verifier).
 
 ## Sequence diagram
-In this secuence diagram is possible to see the main classes and their interactions.
+The following sequence diagram describe the implemented classes and their interactions.
 ![ethernet encapsulation](/img/sitemap_verifier/sequence_diagram.png)
 Additionally, the HTTPHelper module is required to reuse the methods to make HTTP requests.
 
