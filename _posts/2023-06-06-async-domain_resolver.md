@@ -209,7 +209,7 @@ The main function defines a command-line interface using the clap crate. It expe
 * Output path (optional)
 
 The main function parses the command-line arguments, initializes a DomainGenerator, generates domains, 
-resolves them asynchronously using AsyncDomainResolver, then converts the result to JSON, 
+resolves them asynchronously using AsyncDomainResolver, then converts the results to JSON, 
 and writes it to the specified output file. 
 
 {% highlight rust linenos %}
