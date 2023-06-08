@@ -81,7 +81,7 @@ In the following example we will capture and display the network communications 
 
 ## Sniffer
 To capture and display the network traffic we will require a simple sniffer 
-{% highlight ruby %}
+{% highlight ruby linenos %}
 require 'packetfu'
 include PacketFu
 
@@ -107,7 +107,7 @@ NOTE: You can comment or remove the line 13 if you want observe all the packets 
 
 ## FTP client
 To generate the traffic we will use a very simple ftp client.
-{% highlight ruby %}
+{% highlight ruby linenos %}
 require 'net/ftp'
 
 host = 'ftp.netbsd.org'
@@ -129,7 +129,7 @@ ftp.close()
 {% include youtube_embed.html id="JlXi5Y4IDZ8" %}
 
 # Executed commands
-{% highlight bash %}
+{% highlight bash linenos %}
 bundle install
 rvmsudo bundle exec ruby sniffer.rb 
 bundle exec ruby ftp_client.rb

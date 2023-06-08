@@ -21,7 +21,7 @@ Both libraries are implemented in C, the _libimobildevice_ library is designed t
 To get the name of each device the program uses the _device_name_ method in the _iDevice :: LockdownClient_ object. Then It will get the application list through the _browse_  method in the _iDevice::InstProxyClient_ object, and it prints the attributes defined in the _props_ array.
 
 **Source code**
-{% highlight ruby %}
+{% highlight ruby linenos %}
 require 'bundler/setup'
 require 'idevice'
 
