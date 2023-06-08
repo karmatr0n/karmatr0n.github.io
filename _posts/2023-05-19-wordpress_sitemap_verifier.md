@@ -182,22 +182,32 @@ class SitemapVerifier
 end
 {% endhighlight %}
 
+## Using the classes
+The following code is responsible for parsing the arguments, instantiating the SitemapVerifier class, and running the verification process
+as well as saving the JSON file with the stats.
+
+{% highlight ruby linenos %}
+if ARGV.length == 1 && $PROGRAM_NAME == __FILE__
+  sitemap_verifier = SitemapVerifier.new(ARGV.shift, debug: true)
+  sitemap_verifier.verify_urls
+  sitemap_verifier.save_json
+  puts(sitemap_verifier.output_filename)
+else
+  puts "Usage: ruby #{__FILE__} <sitemap_url>"
+end
+
+{% endhighlight %}
+
 ## Usage
-
 1. Clone the repository:
-
     ```bash
     git clone https://github.com/karmatr0n/sitemap_verifier
     ```
-
 2. Install the dependencies:
-
     ```bash
     bundle install
-    ```  
-
+    ```
 3. Run the script:
-
     ```bash
     ruby sitemap_verifier.rb https://example.com/sitemap_index.xml
     ```
