@@ -8,7 +8,7 @@ tags:  ruby wordpress sitemap networking http
 I developed a toy Ruby application to verify all urls described by the sitemap plugin in Wordpress instance. 
 
 For this case, the customer has several websites based on Wordpress and they wanted to verify if all urls were 
-working properly because they did a migration in multiple domain names recently. The application must track the 
+working properly because they did a migration in multiple domain names recently. The application also must track the 
 following items per request:
 
 * HTTP status code 
