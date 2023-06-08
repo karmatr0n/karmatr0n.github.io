@@ -40,7 +40,7 @@ The following piece of code will perform the following operations and that does 
 2. Builds the byte string that represent an ethernet packet (source and destination mac addresses, type and payload).
 3. Injects the ethernet packet to network interface each two seconds forever.
 
-{% highlight ruby %}
+{% highlight ruby linenos %}
 require 'pcaprub'
 
 ifname = Pcap.lookupdev
@@ -72,7 +72,7 @@ in the same ethernet network.
 This program is designed to send ethernet packets each 2 seconds from the Host A (02:42:ab:aa:bb:02) to the 
 Host B (02:42:ab:aa:bb:01) using the MAC addresses only.
 
-{% highlight ruby %}
+{% highlight ruby linenos %}
 require 'packetfu'
 
 eth_pkt = PacketFu::EthPacket.new
@@ -94,7 +94,7 @@ end
 The packet sniffer will capture the traffic in the network interface (eth0) and will print only the
 ethernet packets received from the Host A (02:42:ab:aa:bb:02). 
 
-{% highlight ruby %}
+{% highlight ruby linenos %}
 #!/usr/bin/env ruby
 require 'packetfu'
 
@@ -114,7 +114,7 @@ The [docker compose](https://docs.docker.com/engine/reference/commandline/compos
 multiple containers in a [macvlan network](https://docs.docker.com/network/macvlan/) within the l3 mode, which is 
 required to allow send raw ethernet packets between containers.
 
-{% highlight yaml %}
+{% highlight yaml linenos %}
 version: '3'
 services:
   sniffer:
