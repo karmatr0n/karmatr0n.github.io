@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Network protocols with Ruby - 1"
+title:  "Network protocols with Ruby"
 date:   2022-06-24 16:30:00
 tags: ruby rust networking security scanning
 ---
