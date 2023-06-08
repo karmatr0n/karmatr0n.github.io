@@ -36,17 +36,22 @@ is to be a mixin for the URLChecker and SiteMapper classes.
 {% highlight ruby linenos %}
 module HttpHelper
     USER_AGENTS = [
-    'Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/81.0',
-    'Mozilla/5.0 (compatible; MSIE 10.0.0; Windows Phone OS 8.0.0; Trident/6.0.0; IEMobile/10.0.0; Lumia 630',
-    'Mozilla/5.0 (iPad; CPU OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A523 Safari/8536.25'
+        'Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101 Firefox/81.0',
+        'Mozilla/5.0 (compatible; MSIE 10.0.0; Windows Phone OS 8.0.0; Trident/6.0.0; IEMobile/10.0.0; Lumia 630',
+        'Mozilla/5.0 (iPad; CPU OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A523 Safari/8536.25'
     ].freeze
 
-    def http_get_request(path)
-        request = Net::HTTP::Get.new(path)
-        request['User-Agent'] = USER_AGENTS.sample
-        request
+    def http_request(uri)
+        http = Net::HTTP.new(uri.host, uri.port)
+        http.use_ssl = uri.scheme == 'https'
+        http.open_timeout = 10
+        http.read_timeout = 10
+        if http.use_ssl?
+          http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+          http.ssl_timeout = 10
+        end
+        http
     end
-
     
     def http_request(uri)
         http = Net::HTTP.new(uri.host, uri.port)
@@ -80,7 +85,7 @@ class URLChecker
     @end_time = Time.now
     @url_verified = true
     @status_code = response.code
-  rescue Net::OpenTimeout, OpenSSL::SSL::SSLError => _e
+  rescue Net::OpenTimeout, Net::ReadTimeout, OpenSSL::SSL::SSLError => _exception
     retry if (retries += 1) <= 2
   end
 
@@ -116,13 +121,15 @@ class SiteMapper
     http = http_request(@uri)
     response = http.request(http_get_request(@uri.path))
     response.code == '200' ? urls_from_xml(response.body) : []
-  rescue Net::OpenTimeout, OpenSSL::SSL::SSLError => _e
+  rescue Net::OpenTimeout, Net::ReadTimeout, OpenSSL::SSL::SSLError => _exception
     (retries += 1) <= 2 ? retry : []
   end
 
   def urls_from_xml(xml)
     doc = Nokogiri::XML(xml)
     doc.xpath('//xmlns:loc').map(&:text)
+  rescue Nokogiri::XML::XPath::SyntaxError => _exception
+    []
   end
 end
 {% endhighlight %}
