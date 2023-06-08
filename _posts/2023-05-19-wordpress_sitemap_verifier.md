@@ -6,14 +6,22 @@ tags:  ruby wordpress sitemap networking http
 ---
 
 I developed a toy Ruby application to verify all urls described by the sitemap plugin in Wordpress instance. 
+
 For this case, the customer has several websites based on Wordpress and they wanted to verify if all urls were 
-working properly because they did a DNS migration recently. For the verified URLs the application must track the HTTP 
-status code and the response time (start time, end time, duration) per request.
+working properly because they did a migration in multiple domain names recently. The application must track the 
+following items per request:
 
-Additionally, the application must be able to run multiple requests asynchronously to speed up the verification process.
-So, I implemented this application based on the Ruby HTTP library, and the Nokogiri and Async gems. 
+* HTTP status code 
+* Start time
+* End time
+* Duration
+* Whether the URL was successfully verified
+* Url
 
-The source code is available on [this github repository](https://github.com/karmatr0n/sitemap_verifier).
+Additionally, this must be able to run multiple requests asynchronously to speed up the verification process.
+
+So, I implemented this application based on the Ruby HTTP library, and the Nokogiri and Async gems. The source code 
+is available on [this github repository](https://github.com/karmatr0n/sitemap_verifier).
 
 ## Sequence diagram
 In this secuence diagram is possible to see the main classes and their interactions.
