@@ -5,8 +5,6 @@ date:  2023-02-28 10:30:00
 tags:  mongodb transactions replica_set authentication 
 ---
 
-## Introduction
-
 In the recent months I have been developing a python application that requires MongoDB 
 with transactions. The transactions feature is just available for replica sets and sharded clusters, 
 and this is just a simple guide to setup a development environment with authentication and 
