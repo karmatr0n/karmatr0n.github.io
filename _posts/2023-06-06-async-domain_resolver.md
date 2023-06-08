@@ -22,7 +22,7 @@ dig +short example.com
 dig +short asdfasdf.io # No IP address found
 {% endhighlight %}
 
-Using the dig tool is possible to program a shell script to produce the json output:
+Using the dig tool is possible to program a shell script to produce the next json output:
 
 {% highlight json linenos %}
 [
