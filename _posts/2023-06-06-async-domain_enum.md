@@ -2,7 +2,7 @@
 layout: post
 title: "Asynchronous Domain Enumerator in Rust"
 date:  2023-06-06 18:47:00
-tags:  domain networking dns resolver rust async 
+tags:  domain networking dns resolver rust async enumeration
 ---
 
 In this post I will show you a Rust application to enumerate domains asynchronously using DNS queries with the A and 
@@ -141,25 +141,25 @@ impl DomainGenerator {
 }
 {% endhighlight %}
 
-## AsyncDomainResolver
+## AsyncDomainEnumerator
 This Rust code defines a struct used for asynchronously resolving multiple domain names based on the
 [rsdns](https://crates.io/crates/rsdns) crate.  It uses the list of generated domains, the maximum number of asynchronous 
 dns queries, and the data structure called DomainNames to store domain and its status once it has been validated.  
 
 The provided functions will perform the following actions:
 
-* Initializing a new instance of AsyncDomainResolver. 
+* Initializing a new instance of AsyncDomainEnumerator. 
 * Resolving domains using asynchronous operations in batches of 20.
 * Returns the results as a JSON string.
 
 {% highlight rust linenos %}
-struct AsyncDomainResolver {
+struct AsyncDomainEnumerator {
     domains: Vec<String>,
     max_async_queries: u32,
     resolved_domains: DomainNames,
 }
 
-impl AsyncDomainResolver {
+impl AsyncDomainEnumerator {
     fn new(domains: Vec<String>) -> Self {
         Self {
             domains: domains,
