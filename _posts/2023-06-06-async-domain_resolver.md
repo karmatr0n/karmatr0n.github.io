@@ -24,7 +24,7 @@ dig +short asdfasdf.io # No IP address found
 
 Using the dig tool is possible to program a shell script to produce the json output:
 
-{% highlight bash linenos %}
+{% highlight json linenos %}
 [
     { domain: example.io, resolved: true },
     { domain: asdfasdf.io, resolved: false }
