@@ -5,10 +5,10 @@ date:  2023-06-06 18:47:00
 tags:  domain networking dns resolver rust async 
 ---
 
-Rust application to resolve domains asynchronously using DNS queries with the A and AAAA DNS record types 
-to identify if the domain is resolving or not.
+In this post I will show you a Rust application to resolve domains asynchronously using DNS queries with the A and 
+AAAA DNS record types to identify if the domain is resolving or not.
 
-There same operations can be performed with tools like [massdns](https://github.com/blechschmidt/massdns)
+This also can be performed with tools like [massdns](https://github.com/blechschmidt/massdns)
 or bash scripts using the dig or host commands, but I wanted to learn how to do a basic version of those tools
 using Rust.
 
@@ -22,8 +22,16 @@ dig +short example.com
 dig +short asdfasdf.io # No IP address found
 {% endhighlight %}
 
-The two DNS queries to identify if the domain is resolved are based on the following [DNS Record 
-types](https://en.wikipedia.org/wiki/List_of_DNS_record_types):
+Using the dig tool is possible to program a shell script to produce the json output:
+
+{% highlight bash linenos %}
+[
+    { domain: example.io, resolved: true },
+    { domain: asdfasdf.io, resolved: false }
+]
+{% endhighlight %}
+
+However, I will do this with Rust performing two DNS queries with the following [DNS Record types](https://en.wikipedia.org/wiki/List_of_DNS_record_types):
 
 * A: IPv4 address
 * AAAA: IPv6 address
