@@ -18,7 +18,7 @@ executed as a TCP reverse shell in the target's system. Additionally, this code 
 
 # TCP Reverse Shell
 
-{% highlight rust linenos %}
+{% highlight rust %}
 use std::env;
 use std::fs::File;
 use std::net::TcpStream;
