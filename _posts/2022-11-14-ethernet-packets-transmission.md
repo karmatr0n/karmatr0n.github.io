@@ -8,7 +8,7 @@ tags:  ethernet packets networking
 Computers use network protocols to transfer data and the basic unit for this is called network packet and
 I will use ruby and containers to demonstrate how the packet transmission works.
 
-## What is a network packet and how does it work?
+## What is an ethernet packet and how does it work?
 
 An [ethernet packet or frame](https://en.wikipedia.org/wiki/Ethernet_frame#Header) is part of a complete network 
 message and carries address information that helps identify its source and destination. And
