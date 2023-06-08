@@ -26,8 +26,8 @@ Using the dig tool is possible to program a shell script to produce the json out
 
 {% highlight json linenos %}
 [
-    { domain: example.io, resolved: true },
-    { domain: asdfasdf.io, resolved: false }
+    { "domain": "example.io", "resolved": true },
+    { "domain": "asdfasdf.io", "resolved": false }
 ]
 {% endhighlight %}
 
